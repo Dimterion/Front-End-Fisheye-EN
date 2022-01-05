@@ -2,4 +2,4 @@
 
 ## Project set-up
 
-Nothing to install, just open `index.html`.
+https://dimterion.github.io/Front-End-Fisheye-EN/
