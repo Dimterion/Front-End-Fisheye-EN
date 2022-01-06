@@ -5,29 +5,32 @@ body {
     margin: 0;
 }
 
+/* Removed margin for h1 and logo, added header margin */
+
 header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    margin: auto 10vw;
 }
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
 }
 
 .logo {
     height: 50px;
-    margin-left: 100px;
 }
+
+/* Reduced margin-top */
 
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 .photographer_section article {
@@ -38,12 +41,32 @@ h1 {
     flex-direction: column;
 }
 
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
-}
-
 .photographer_section article img {
+    border-radius: 50%;
+    object-fit: cover;
     height: 200px;
     width: 200px;
+}
+
+/* Adjusted h2 and added h3, p and span based on the mockups */
+
+.photographer_section article h2 {
+    color: #BF5138;
+    font-size: 2.25rem;
+    margin: 1.5vh auto;
+}
+
+.photographer_section article h3 {
+    color: #901C1C;
+    font-size: 1rem;
+    margin: auto;
+}
+
+.photographer_section p {
+    margin: auto;
+}
+
+.photographer_section span {
+    color: #525252;
+    font-size: .9rem;
 }

@@ -1,5 +1,5 @@
 async function getPhotographers() {
-    // TODO : Replace with data from the JSON file
+    // TODO : Replace with data from the JSON file - Done
         let url = 'data/photographers.json';
         try {
             let res = await fetch(url);
