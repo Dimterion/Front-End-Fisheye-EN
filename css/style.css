@@ -41,11 +41,15 @@ h1 {
     flex-direction: column;
 }
 
-/* Added a tag alignment and decoration */
+/* Added a tag alignment, decoration and focus */
 
 .photographer_section article a {
     text-align: center;
     text-decoration: none;
+}
+
+a:focus {
+    border: 0.1rem solid black;
 }
 
 .photographer_section article img {

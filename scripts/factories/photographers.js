@@ -1,5 +1,5 @@
 function photographerFactory(data) {
-    // Added city, country, tagline, price, id
+    // Added city, country, tagline, price, id, links
     const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
