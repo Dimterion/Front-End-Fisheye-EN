@@ -41,6 +41,13 @@ h1 {
     flex-direction: column;
 }
 
+/* Added a tag alignment and decoration */
+
+.photographer_section article a {
+    text-align: center;
+    text-decoration: none;
+}
+
 .photographer_section article img {
     border-radius: 50%;
     object-fit: cover;

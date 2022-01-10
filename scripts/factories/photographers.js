@@ -8,12 +8,20 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
-        img.setAttribute("alt", name);
+        img.setAttribute("alt", "");
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         article.appendChild(img);
         article.appendChild(h2);
 
+        const linkTag = document.createElement( 'a' );
+        linkTag.setAttribute("href", `./photographer.html?id=${id}`);
+        linkTag.setAttribute("aria-label", `${name}`);
+
+        img.parentNode.insertBefore(linkTag, img);
+        linkTag.appendChild(img);
+        linkTag.appendChild(h2);
+ 
         const h3 = document.createElement( 'h3' );
         h3.textContent = city + '/' + country;
         article.appendChild(h3);
