@@ -2,7 +2,7 @@
 
 ## Project set-up
 
-https://dimterion.github.io/Front-End-Fisheye-EN/
+[Fisheye](https://dimterion.github.io/Front-End-Fisheye-EN/)
 
 ### Built with
 
