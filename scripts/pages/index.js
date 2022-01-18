@@ -7,9 +7,9 @@ async function getPhotographers() {
         } catch (error) {
             console.log(error);
         }
-    // Return photographer array only once
-    return ({
-        photographers: [...photographers, ...photographers, ...photographers]})
+    // Return photographer array only once - Removed return statement
+    /* return ({
+        photographers: [...photographers, ...photographers, ...photographers]}) */
 }
 
 async function displayData(photographers) {
@@ -25,6 +25,7 @@ async function displayData(photographers) {
 async function init() {
     // Retreive photographer data
     const { photographers } = await getPhotographers();
+    //Checking photographers array --> console.log(photographers);
     displayData(photographers);
 };
 

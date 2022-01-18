@@ -74,3 +74,19 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+/* Added styles */
+
+.photograph-header img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+}
+
+.photograph-card {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5vh;
+}
