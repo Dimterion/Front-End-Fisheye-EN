@@ -14,27 +14,21 @@ async function getMedia() {
   } catch (error) {
     console.log(error);
   }
-  /* return ({
+  /*return ({
     photographers: [...photographers, ...photographers, ...photographers],
     media: [...media, ...media, ...media]}); */
 }
 
 //Factory for generating content on each page
 function mediaFactory(data) {
-  const { id, photographerId, title, image, likes, date, price, name, portrait, city, country, tagline } = data;
+  const { id, photographerId, title, image, video, likes, date, price, name, portrait, city, country, tagline } = data;
   //Checking individual photographerID --> console.log(data.photographerId);
   //Checking individual portrait --> console.log(data.portrait);
+  
   const picture = `assets/photographers/${portrait}`;
-  const pictures = `assets/images/${name}/${image}`;
+  const pictures = `assets/images/individual/${name}/${image}`;
 
-  function getMediaCardDOM() {
-    const article = document.createElement( 'article' );
-    const img = document.createElement( 'img' );
-    img.setAttribute("alt", "");
-    article.appendChild(img);
-    return (article);
-  }
-
+  //Getting content for the Photograph-header section
   function getPhotoCardDOM() {
     const photographCard = document.createElement( 'div' );
     photographCard.setAttribute("class", "photograph-card");
@@ -56,8 +50,8 @@ function mediaFactory(data) {
     textBlock.appendChild(p);
 
     const img = document.createElement( 'img' );
-    img.setAttribute("alt", name);
     img.setAttribute("src", picture);
+    img.setAttribute("alt", name);
     
     const buttonElement = document.querySelector(".contact_button");
 
@@ -65,10 +59,29 @@ function mediaFactory(data) {
     photographCard.appendChild(buttonElement);
     photographCard.appendChild(img);
 
+    const fixedLikesBox = document.querySelector("#likes");
+
+    const fixedRatesBox = document.querySelector("#rates");
+    fixedRatesBox.textContent = `${price}€ / day`;
+
     return (photographCard);
   }
 
-  return { id, photographerId, title, image, likes, date, price, name, portrait, city, country, tagline, getMediaCardDOM, getPhotoCardDOM }
+  //Getting content for the pictures section
+  function getMediaCardDOM() {
+    const container = document.createElement( 'div' );
+    const img = document.createElement( 'img' );
+
+    container.setAttribute("class", "image-container");
+    //img.setAttribute("src", pictures);
+    img.setAttribute("alt", "");
+    
+    container.appendChild(img);
+    
+    return (container);
+  }
+
+  return { id, photographerId, title, image, video, likes, date, price, name, portrait, city, country, tagline, getMediaCardDOM, getPhotoCardDOM }
 }
 
 //Generating data for each section
@@ -76,16 +89,19 @@ function mediaFactory(data) {
 async function displayMedia(media, photographers) {
   const mediaSection = document.querySelector("main");
   const headerSection = document.querySelector(".photograph-header");
+
   media.forEach((mediaItem) => {
     const mediaModel = mediaFactory(mediaItem);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
+  
   photographers.forEach((photographer) => {
     const photoModel = mediaFactory(photographer);
     const photoCardDOM = photoModel.getPhotoCardDOM();
     headerSection.appendChild(photoCardDOM);
   });
+
 };
 
 //Function to sum up previous ones
