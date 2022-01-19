@@ -27,6 +27,7 @@ function mediaFactory(data) {
   
   const picture = `assets/photographers/${portrait}`;
   const pictures = `assets/images/individual/${photographerId}/${image}`;
+  const videos = `assets/images/individual/${photographerId}/${video}`;
 
   //Getting content for the Photograph-header section
   function getPhotoCardDOM() {
@@ -70,18 +71,27 @@ function mediaFactory(data) {
   //Getting content for the pictures section
   function getMediaCardDOM() {
     const container = document.createElement( 'div' );
-    const img = document.createElement( 'img' );
+    let img = document.createElement( 'img' );
     const imgTextBlock = document.createElement( 'div' );
     const titleSpan = document.createElement( 'span' );
     const likesSpan = document.createElement( 'span' );
+    const icon = document.createElement( 'i' );
 
     container.setAttribute("class", "image-container");
     
     if(image !== undefined) {
       img.setAttribute("src", pictures);
+      img.setAttribute("alt", `${title}`);
     }
 
-    img.setAttribute("alt", "");
+    if(video !== undefined) {
+      img = document.createElement( 'video' );
+      img.setAttribute("src", videos);
+      img.setAttribute("type", "video/mp4");
+    }
+
+    icon.setAttribute("class", "fas fa-heart");
+    icon.setAttribute("aria-label", "likes");
 
     imgTextBlock.setAttribute("class", "image-text-block")
     titleSpan.setAttribute("class", "image-title");
@@ -89,13 +99,14 @@ function mediaFactory(data) {
 
     titleSpan.textContent = title;
     likesSpan.textContent = likes;
+    likesSpan.appendChild(icon);
     
     imgTextBlock.appendChild(titleSpan);
     imgTextBlock.appendChild(likesSpan);
 
     container.appendChild(img);
     container.appendChild(imgTextBlock);
-    
+
     return (container);
   }
 
