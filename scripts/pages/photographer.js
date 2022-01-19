@@ -26,7 +26,7 @@ function mediaFactory(data) {
   //Checking individual portrait --> console.log(data.portrait);
   
   const picture = `assets/photographers/${portrait}`;
-  const pictures = `assets/images/individual/${name}/${image}`;
+  const pictures = `assets/images/individual/${photographerId}/${image}`;
 
   //Getting content for the Photograph-header section
   function getPhotoCardDOM() {
@@ -71,12 +71,30 @@ function mediaFactory(data) {
   function getMediaCardDOM() {
     const container = document.createElement( 'div' );
     const img = document.createElement( 'img' );
+    const imgTextBlock = document.createElement( 'div' );
+    const titleSpan = document.createElement( 'span' );
+    const likesSpan = document.createElement( 'span' );
 
     container.setAttribute("class", "image-container");
-    //img.setAttribute("src", pictures);
-    img.setAttribute("alt", "");
     
+    if(image !== undefined) {
+      img.setAttribute("src", pictures);
+    }
+
+    img.setAttribute("alt", "");
+
+    imgTextBlock.setAttribute("class", "image-text-block")
+    titleSpan.setAttribute("class", "image-title");
+    likesSpan.setAttribute("class", "image-likes");
+
+    titleSpan.textContent = title;
+    likesSpan.textContent = likes;
+    
+    imgTextBlock.appendChild(titleSpan);
+    imgTextBlock.appendChild(likesSpan);
+
     container.appendChild(img);
+    container.appendChild(imgTextBlock);
     
     return (container);
   }
@@ -87,7 +105,7 @@ function mediaFactory(data) {
 //Generating data for each section
 
 async function displayMedia(media, photographers) {
-  const mediaSection = document.querySelector("main");
+  const mediaSection = document.querySelector(".gallery");
   const headerSection = document.querySelector(".photograph-header");
 
   media.forEach((mediaItem) => {

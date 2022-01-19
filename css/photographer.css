@@ -122,6 +122,38 @@ form input {
     font-weight: 600;
 }
 
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    left: 6%;
+    margin: 10px 0;
+    position: relative;
+}
+
+.image-container {
+    height: 20vw;
+    padding: 2%;
+    width: 25vw;
+}
+
+.image-container img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.image-text-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-text-block span {
+    color: #901C1C;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
 .photograph-rates {
     align-items: center;
     background: #DB8876;
