@@ -2,7 +2,7 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <!-- Added Font Awesome icons and link and alt to the logo -->
@@ -26,33 +26,33 @@
       <span id="rates"></span>
     </div>
     <!-- Adjusted the modal -->
-    <div id="contact_modal">
-			<div class="modal">
+    <div id="contact_modal" tabindex="-1">
+			<div class="modal" role="dialog" aria-labelledby="modal-header-block">
 				<header id="modal-main">
-          <div class="modal-header-block">
-            <h2>Contact me</h2>
-            <h2 id="modal-header"></h2>
+          <div id="modal-header-block">
+            <h1>Contact me</h1>
+            <h1 id="modal-header"></h1>
           </div>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" class="close-modal" alt="" aria-label="Close contact form" onclick="closeModal()" />
         </header>
 				<form>
 					<div>
-						<label>First name</label>
-						<input />
+						<label for="firstName">First name</label>
+						<input id="firstName" type="text" minlength="2" required aria-label="first name"/>
 					</div>
 					<div>
-						<label>Last name</label>
-						<input />
+						<label for="lastName">Last name</label>
+						<input id="lastName" type="text" minlength="2" required aria-label="last name"/>
 					</div>
 					<div>
-						<label>Email</label>
-						<input />
+						<label for="email">Email</label>
+						<input id="email" type="email" required aria-label="email"/>
 					</div>
 					<div>
-						<label>Your message</label>
-						<input />
+						<label for="message">Your message</label>
+						<textarea id="message" name="message" minlength="2" required aria-label="your message"></textarea>
 					</div>
-          <button class="contact_button">Send</button>
+          <button type="submit" class="contact_button" aria-label="Send">Send</button>
 				</form>
 			</div>
 		</div>
