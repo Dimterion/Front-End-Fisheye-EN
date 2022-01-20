@@ -14,15 +14,11 @@ async function getMedia() {
   } catch (error) {
     console.log(error);
   }
-  /*return ({
-    photographers: [...photographers, ...photographers, ...photographers],
-    media: [...media, ...media, ...media]}); */
 }
 
 //Factory for generating content on each page
 function mediaFactory(data) {
   const { id, photographerId, title, image, video, likes, date, price, name, portrait, city, country, tagline } = data;
-  //Checking individual photographerID --> console.log(data.photographerId);
   //Checking individual portrait --> console.log(data.portrait);
   
   const picture = `assets/photographers/${portrait}`;
@@ -60,10 +56,11 @@ function mediaFactory(data) {
     photographCard.appendChild(buttonElement);
     photographCard.appendChild(img);
 
-    const fixedLikesBox = document.querySelector("#likes");
-
     const fixedRatesBox = document.querySelector("#rates");
     fixedRatesBox.textContent = `${price}€ / day`;
+
+    const modalHeader = document.querySelector("#modal-header");
+    modalHeader.textContent = name;
 
     return (photographCard);
   }
@@ -114,7 +111,6 @@ function mediaFactory(data) {
 }
 
 //Generating data for each section
-
 async function displayMedia(media, photographers) {
   const mediaSection = document.querySelector(".gallery");
   const headerSection = document.querySelector(".photograph-header");
@@ -134,7 +130,6 @@ async function displayMedia(media, photographers) {
 };
 
 //Function to sum up previous ones
-
 async function initMedia() {
   const { photographers, media } = await getMedia();
   //Checking photographers array --> console.log(photographers);

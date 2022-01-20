@@ -54,10 +54,13 @@
     cursor: pointer;
 }
 
+/* Changed text-align, added margin */
+
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    margin: 0;
+    text-align: left;
 }
 
 form {
@@ -181,4 +184,14 @@ form input {
 .photograph-rates span {
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+#modal-main {
+    align-items: baseline;
+    display: flex;
+    height: 100%;
+}
+
+.modal-header-block {
+    height: 100%;
 }

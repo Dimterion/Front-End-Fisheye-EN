@@ -25,15 +25,31 @@
       <span id="likes"></span>
       <span id="rates"></span>
     </div>
+    <!-- Adjusted the modal -->
     <div id="contact_modal">
 			<div class="modal">
-				<header>
-          <h2>Contact me</h2>
+				<header id="modal-main">
+          <div class="modal-header-block">
+            <h2>Contact me</h2>
+            <h2 id="modal-header"></h2>
+          </div>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form>
 					<div>
 						<label>First name</label>
+						<input />
+					</div>
+					<div>
+						<label>Last name</label>
+						<input />
+					</div>
+					<div>
+						<label>Email</label>
+						<input />
+					</div>
+					<div>
+						<label>Your message</label>
 						<input />
 					</div>
           <button class="contact_button">Send</button>
