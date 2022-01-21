@@ -79,13 +79,17 @@ function mediaFactory(data) {
     if(image !== undefined) {
       img.setAttribute("src", pictures);
       img.setAttribute("alt", `${title}`);
+      img.setAttribute("id", `${id}`);
     }
 
     if(video !== undefined) {
       img = document.createElement( 'video' );
       img.setAttribute("src", videos);
       img.setAttribute("type", "video/mp4");
+      img.setAttribute("id", `${id}`);
     }
+
+    img.setAttribute("onclick", "displayLightBox()");
 
     icon.setAttribute("class", "fas fa-heart");
     icon.setAttribute("aria-label", "likes");
@@ -127,6 +131,21 @@ async function displayMedia(media, photographers) {
     headerSection.appendChild(photoCardDOM);
   });
 
+  console.log(media);
+  
+  let lightBoxItem;
+  const lightBox = document.querySelector('.lightbox');
+  
+  for (let i = 0; i < media.length; i++) {
+    if (media[i].image !== undefined) {
+      lightBoxItem = document.createElement( 'img' );
+      lightBoxItem.setAttribute("src", `assets/images/individual/${media[i].photographerId}/${media[i].image}`);
+    } else if (media[i].image == undefined) {
+      lightBoxItem = document.createElement( 'video' );
+      lightBoxItem.setAttribute("src", `assets/images/individual/${media[i].photographerId}/${media[i].video}`);
+    }
+    console.log(lightBoxItem.src);
+  }
 };
 
 //Function to sum up previous ones

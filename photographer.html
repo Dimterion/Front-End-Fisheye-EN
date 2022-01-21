@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<!-- Added language code -->
+<html lang="en">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <!-- Added Font Awesome icons and link and alt to the logo -->
     <script src="https://kit.fontawesome.com/d21300426d.js" crossorigin="anonymous"></script>
-    <title>Fisheye - photographe </title>
+    <title>Fisheye - photographer page</title>
   </head>
   <body>
     <header>
@@ -57,7 +58,18 @@
 			</div>
 		</div>
     <script src="scripts/utils/contactForm.js"></script>
-    <!-- Added link to photographer.js -->
+
+
+
+    <div id="modal-lightbox" tabindex="-1">
+      <div class="lightbox" role="dialog" aria-label="Image closeup view" >
+        <i class="fas fa-times" aria-label="Close image" onclick="closeLightBox()"></i>
+      </div>
+    </div>
+
+
+    <!-- Added link to photographer.js and lightbox.js -->
     <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>

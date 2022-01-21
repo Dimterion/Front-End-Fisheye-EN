@@ -31,4 +31,4 @@ formField.addEventListener("submit", (e) => {
     logToConsole();
     formField.reset();
     closeModal();
-  });
+});
