@@ -18,7 +18,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px;
+  padding: 1vh 5vw;
   margin: auto;
   position: fixed;
   top: 50%;
@@ -29,10 +29,40 @@
   overflow-x: hidden;
 }
 
+.lightbox img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.lightbox video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 i.fas.fa-times {
   color: #901C1C;
+  cursor: pointer;
   font-size: 3rem;
   left: 33vw;
   position: relative;
+}
+
+i.fas.fa-chevron-right {
+  color: #901C1C;
   cursor: pointer;
+  font-size: 3rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+
+i.fas.fa-chevron-left {
+  color: #901C1C;
+  cursor: pointer;
+  font-size: 3rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
 }
