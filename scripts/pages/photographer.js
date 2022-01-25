@@ -132,7 +132,7 @@ async function initMedia() {
   const galleryItem = document.querySelectorAll('.gallery-item');
   const lightBoxModal = document.querySelector('#modal-lightbox');
   const lightBox = document.querySelector('.lightbox');
-  const imgContainer = document.querySelectorAll('.image-title');
+  const imgTitle = document.querySelectorAll('.image-title');
   const closeIcon = document.querySelector("#closeIcon");
   const titleForCloseView = document.createElement( 'span' );
   const lightBoxPhoto = document.createElement( 'img' );
@@ -169,7 +169,7 @@ async function initMedia() {
 
         lightBoxModal.style.display = "block";
         
-        let elementTitle = imgContainer[currentIndex].innerHTML;
+        let elementTitle = imgTitle[currentIndex].innerHTML;
         
         titleForCloseView.innerHTML = elementTitle;
 
@@ -187,6 +187,8 @@ async function initMedia() {
         
         nextBtn.onclick = () => {
           currentIndex++;
+          elementTitle = imgTitle[currentIndex].innerHTML;
+          titleForCloseView.innerHTML = elementTitle;
           if (currentIndex >= galleryItem.length - 1) {
             preview();
             nextBtn.style.display = "none";
@@ -198,6 +200,8 @@ async function initMedia() {
 
         prevBtn.onclick = () => {
           currentIndex--;
+          elementTitle = imgTitle[currentIndex].innerHTML;
+          titleForCloseView.innerHTML = elementTitle;
           if (currentIndex == 0) {
             preview();
             prevBtn.style.display = "none";

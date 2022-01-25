@@ -36,6 +36,7 @@
 }
 
 .lightbox video {
+  height: 80%;
   width: 90%;
   object-fit: contain;
   position: absolute;
