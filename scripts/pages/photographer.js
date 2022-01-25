@@ -70,6 +70,7 @@ function mediaFactory(data) {
       img.setAttribute("id", `${id}`);
       img.setAttribute("class", "gallery-item");
       img.setAttribute("type", "photo");
+      img.setAttribute("tabindex", "0");
     }
 
     if(video !== undefined) {
@@ -78,6 +79,7 @@ function mediaFactory(data) {
       img.setAttribute("type", "video");
       img.setAttribute("id", `${id}`);
       img.setAttribute("class", "gallery-item");
+      img.setAttribute("tabindex", "0");
     }
 
     container.setAttribute("class", "image-container");
@@ -150,7 +152,7 @@ async function initMedia() {
 
       galleryItem[currentIndex].onclick = () => {
         lightBoxModal.style.display = "block";
-
+        currentIndex = i;
         function preview () {
           let selectedImgUrl = galleryItem[currentIndex].src;
           lightBoxPhoto.src = selectedImgUrl;
@@ -173,7 +175,7 @@ async function initMedia() {
         
         titleForCloseView.innerHTML = elementTitle;
 
-        //Previous and next buttons
+        //Previous and next buttons functionality
         const prevBtn = document.querySelector("#leftArr");
         const nextBtn = document.querySelector("#rightArr");
 
@@ -185,7 +187,8 @@ async function initMedia() {
           nextBtn.style.display = "none";
         }
         
-        nextBtn.onclick = () => {
+        //Next button
+        function clickNext() {
           currentIndex++;
           elementTitle = imgTitle[currentIndex].innerHTML;
           titleForCloseView.innerHTML = elementTitle;
@@ -198,7 +201,18 @@ async function initMedia() {
           }
         }
 
-        prevBtn.onclick = () => {
+        nextBtn.onclick = () => {
+          clickNext();
+        }
+
+        window.addEventListener('keydown', function(event) {
+          if (event.key === 'ArrowRight' && currentIndex < galleryItem.length - 1) {
+            clickNext();
+          }
+        });
+
+        //Previous button
+        function clickPrevious() {
           currentIndex--;
           elementTitle = imgTitle[currentIndex].innerHTML;
           titleForCloseView.innerHTML = elementTitle;
@@ -211,12 +225,33 @@ async function initMedia() {
           }
         }
 
-        closeIcon.onclick = () => {
+        prevBtn.onclick = () => {
+          clickPrevious();
+        }
+
+        window.addEventListener('keydown', function(event) {
+          if (event.key === 'ArrowLeft' && currentIndex > 0) {
+            clickPrevious();
+          }
+        });
+
+        //Closing Lightbox functionality
+        function closeLightBox() {
           lightBoxModal.style.display = "none";
           prevBtn.style.display = "block";
           nextBtn.style.display = "block";
           currentIndex = i;
         }
+
+        closeIcon.onclick = () => {
+          closeLightBox();
+        }
+
+        window.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape') {
+            closeLightBox();
+          }
+        });
 
       }
     }
