@@ -28,41 +28,61 @@
 
 .lightbox img {
   height: 85%;
-  width: 100%;
   object-fit: contain;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 
 .lightbox video {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  width: 90%;
+  object-fit: contain;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 
 i.fas.fa-times {
   color: #901C1C;
   cursor: pointer;
   font-size: 3rem;
-  left: 85vw;
-  position: relative;
-  top: 3vw;
+  right: 0%;
+  position: absolute;
+  top: 3%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
 }
 
 i.fas.fa-chevron-right {
   color: #901C1C;
   cursor: pointer;
   font-size: 3rem;
-  position: relative;
-  top: 45%;
+  position: absolute;
+  right: 0%;
+  top: 50%;
   transform: translate(-50%, -50%);
-  left: 100%;
+  z-index: 3;
 }
 
 i.fas.fa-chevron-left {
   color: #901C1C;
   cursor: pointer;
   font-size: 3rem;
-  position: relative;
-  top: 45%;
+  left: 2%;
+  position: absolute;
+  top: 50%;
   transform: translate(-50%, -50%);
-  right: 9%;
+  z-index: 3;
+}
+
+.image-title-preview {
+  color: #901C1C;
+  font-size: 1.2rem;
+  font-weight: 600;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 95%;
 }

@@ -1,4 +1,4 @@
-function displayLightBox() {
+/* function displayLightBox() {
   const modal = document.getElementById("modal-lightbox");
   modal.style.display = "block";
 }
@@ -6,4 +6,4 @@ function displayLightBox() {
 function closeLightBox() {
   const modal = document.getElementById("modal-lightbox");
   modal.style.display = "none";
-}
+} */
