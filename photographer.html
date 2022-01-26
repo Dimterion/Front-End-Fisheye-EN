@@ -19,7 +19,7 @@
         <button class="contact_button" aria-label="Open contact form" onclick="displayModal()">Contact me</button>
       </div>
       <span id="order">Order by</span>
-      <div class="gallery"></div>
+      <div class="gallery" onkeypress="handleEnter(event)"></div>
     </main>
     <!-- Added fixed block with rates -->
     <div class="photograph-rates">
@@ -27,7 +27,7 @@
       <span id="rates"></span>
     </div>
     <!-- Adjusted the modal -->
-    <div id="contact_modal" tabindex="-1">
+    <div id="contact_modal">
 			<div class="modal" role="dialog" aria-labelledby="modal-header-block">
 				<header id="modal-main">
           <div id="modal-header-block">
@@ -59,7 +59,7 @@
 		</div>
     <script src="scripts/utils/contactForm.js"></script>
     <!-- Added Lightbox block -->
-    <div id="modal-lightbox" tabindex="-1">
+    <div id="modal-lightbox">
       <div class="lightbox" role="dialog" aria-label="Image closeup view" >
         <i id="closeIcon" class="fas fa-times" aria-label="Close image"></i>
         <i id="rightArr" class="fas fa-chevron-right"></i>

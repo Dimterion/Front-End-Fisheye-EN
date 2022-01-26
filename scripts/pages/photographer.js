@@ -63,6 +63,7 @@ function mediaFactory(data) {
     const titleSpan = document.createElement( 'span' );
     const likesSpan = document.createElement( 'span' );
     const icon = document.createElement( 'i' );
+    const likesBox = document.createElement( 'div' );
 
     if(image !== undefined) {
       img.setAttribute("src", pictures);
@@ -88,13 +89,15 @@ function mediaFactory(data) {
     imgTextBlock.setAttribute("class", "image-text-block")
     titleSpan.setAttribute("class", "image-title");
     likesSpan.setAttribute("class", "image-likes");
+    likesBox.setAttribute("class", "likesbox");
 
     titleSpan.textContent = title;
     likesSpan.textContent = likes;
     
-    likesSpan.appendChild(icon);
+    likesBox.appendChild(likesSpan);
+    likesBox.appendChild(icon);
     imgTextBlock.appendChild(titleSpan);
-    imgTextBlock.appendChild(likesSpan);
+    imgTextBlock.appendChild(likesBox);
     container.appendChild(img);
     container.appendChild(imgTextBlock);
 
@@ -141,6 +144,7 @@ async function initMedia() {
   const lightBoxVideo = document.createElement( 'video' );
 
   titleForCloseView.setAttribute("class", "image-title-preview");
+  lightBoxVideo.setAttribute("controls", "");
 
   lightBox.appendChild(lightBoxPhoto);
   lightBox.appendChild(lightBoxVideo);
@@ -149,10 +153,10 @@ async function initMedia() {
   window.onload = () => {
     for (let i = 0; i < galleryItem.length; i++) {
       let currentIndex = i;
-
-      galleryItem[currentIndex].onclick = () => {
+      let clickedImgIndex;
+      galleryItem[i].onclick = () => {
         lightBoxModal.style.display = "block";
-        currentIndex = i;
+        clickedImgIndex = i;
         function preview () {
           let selectedImgUrl = galleryItem[currentIndex].src;
           lightBoxPhoto.src = selectedImgUrl;
@@ -186,7 +190,7 @@ async function initMedia() {
         if (currentIndex >= galleryItem.length - 1) {
           nextBtn.style.display = "none";
         }
-        
+
         //Next button
         function clickNext() {
           currentIndex++;
@@ -237,10 +241,10 @@ async function initMedia() {
 
         //Closing Lightbox functionality
         function closeLightBox() {
+          currentIndex = clickedImgIndex;
           lightBoxModal.style.display = "none";
           prevBtn.style.display = "block";
           nextBtn.style.display = "block";
-          currentIndex = i;
         }
 
         closeIcon.onclick = () => {
@@ -257,6 +261,32 @@ async function initMedia() {
     }
   }
 
+  //Likes count
+  const likes = document.querySelectorAll(".likesbox");
+  const imgLikes = document.querySelectorAll(".image-likes");
+
+  likes.forEach(() => {
+    for (let z = 0; z < imgLikes.length; z++) {
+      likes[z].onclick = () => {
+        if (likes[z].clicked) {
+          imgLikes[z].innerHTML;
+          } else {
+          likes[z].clicked = true;
+          imgLikes[z].innerHTML++;
+          likes[z].style.color = "#BF5138";
+        }
+      }
+    }
+  });
+
 };
 
 initMedia();
+
+//Enter - click functionality
+function handleEnter(e){
+  let keycode = (e.keyCode ? e.keyCode : e.which);
+  if (keycode == '13') {
+    document.activeElement.click();
+  }
+};

@@ -189,6 +189,18 @@ form input {
     font-weight: 600;
 }
 
+.likesbox {
+    display: flex;
+    align-items: baseline;
+    color: #901C1C;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+i.fas.fa-heart {
+    margin-left: 5px;
+}
+
 .image-likes i {
     padding-left: 5px;
 }

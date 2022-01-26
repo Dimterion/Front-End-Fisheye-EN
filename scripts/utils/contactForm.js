@@ -1,6 +1,8 @@
 function displayModal() {
     const modal = document.getElementById("contact_modal");
+    const fName = document.getElementById("firstName");
 	modal.style.display = "block";
+    fName.focus();
 }
 
 function closeModal() {
