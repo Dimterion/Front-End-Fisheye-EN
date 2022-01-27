@@ -264,8 +264,6 @@ async function initMedia() {
   //Likes count
   const likes = document.querySelectorAll(".likesbox");
   const imgLikes = document.querySelectorAll(".image-likes");
-
-
   let likesArray = [];
 
   imgLikes.forEach((like) => {
@@ -274,11 +272,7 @@ async function initMedia() {
 
   const toNumbers = arr => arr.map(Number);
   likesArray = toNumbers(likesArray);
-
   let likesSum = likesArray.reduce((a, b) => a + b, 0);
-
-  console.log(likesSum);
-
   const likesSpan = document.querySelector("#likes");
   likesSpan.innerHTML = `${likesSum} <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>`;
   
@@ -297,14 +291,13 @@ async function initMedia() {
     }
   });
 
+  imageContainer = document.querySelectorAll(".image-container");
+    
+  for (let z = 0; z < imageContainer.length; z++) {
+    console.log(imageContainer[z].firstChild.nextSibling.firstChild.innerHTML.toLowerCase());
+
+  }
+    
 };
 
 initMedia();
-
-//Enter - click functionality
-function handleEnter(e){
-  let keycode = (e.keyCode ? e.keyCode : e.which);
-  if (keycode == '13') {
-    document.activeElement.click();
-  }
-};
