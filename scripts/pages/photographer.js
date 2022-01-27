@@ -265,12 +265,30 @@ async function initMedia() {
   const likes = document.querySelectorAll(".likesbox");
   const imgLikes = document.querySelectorAll(".image-likes");
 
+
+  let likesArray = [];
+
+  imgLikes.forEach((like) => {
+    likesArray.push(like.innerHTML);
+  });
+
+  const toNumbers = arr => arr.map(Number);
+  likesArray = toNumbers(likesArray);
+
+  let likesSum = likesArray.reduce((a, b) => a + b, 0);
+
+  console.log(likesSum);
+
+  const likesSpan = document.querySelector("#likes");
+  likesSpan.innerHTML = `${likesSum} <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>`;
+  
   likes.forEach(() => {
     for (let z = 0; z < imgLikes.length; z++) {
       likes[z].onclick = () => {
         if (likes[z].clicked) {
           imgLikes[z].innerHTML;
           } else {
+          likesSpan.innerHTML = `${likesSum+=1} <i class="fas fa-heart" aria-label="likes" aria-hidden="true"></i>`;
           likes[z].clicked = true;
           imgLikes[z].innerHTML++;
           likes[z].style.color = "#BF5138";
