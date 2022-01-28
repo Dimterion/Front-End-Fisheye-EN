@@ -61,6 +61,7 @@ function mediaFactory(data) {
     let img = document.createElement( 'img' );
     const imgTextBlock = document.createElement( 'div' );
     const titleSpan = document.createElement( 'span' );
+    const dateSpan = document.createElement( 'span' );
     const likesSpan = document.createElement( 'span' );
     const icon = document.createElement( 'i' );
     const likesBox = document.createElement( 'div' );
@@ -88,15 +89,18 @@ function mediaFactory(data) {
     icon.setAttribute("aria-label", "likes");
     imgTextBlock.setAttribute("class", "image-text-block")
     titleSpan.setAttribute("class", "image-title");
+    dateSpan.setAttribute("class", "image-date");
     likesSpan.setAttribute("class", "image-likes");
     likesBox.setAttribute("class", "likesbox");
 
     titleSpan.textContent = title;
+    dateSpan.textContent = date;
     likesSpan.textContent = likes;
     
     likesBox.appendChild(likesSpan);
     likesBox.appendChild(icon);
     imgTextBlock.appendChild(titleSpan);
+    imgTextBlock.appendChild(dateSpan);
     imgTextBlock.appendChild(likesBox);
     container.appendChild(img);
     container.appendChild(imgTextBlock);
@@ -291,13 +295,6 @@ async function initMedia() {
     }
   });
 
-  imageContainer = document.querySelectorAll(".image-container");
-    
-  for (let z = 0; z < imageContainer.length; z++) {
-    console.log(imageContainer[z].firstChild.nextSibling.firstChild.innerHTML.toLowerCase());
-
-  }
-    
 };
 
 initMedia();

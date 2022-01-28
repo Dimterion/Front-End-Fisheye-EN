@@ -145,10 +145,68 @@ form input {
     color: #525252;
 }
 
+.order-section {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+}
+
 #order {
-    margin: 0 100px;
+    margin: 0 25px 0 100px;
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+#dropdown-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    width: 170px;
+    height: 50px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+}
+
+.buttons-section {
+    display: none;
+    position: absolute;
+    z-index: 2;
+}
+
+.order-buttons button {
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 50px;
+    border: none;
+    background-color: #901C1C;
+    cursor: pointer;
+}
+
+.fas.fa-angle-up {
+    display: none;
+}
+
+#popularity-sort {
+    border-bottom: 1px solid white;
+}
+
+#date-sort {
+    border-bottom: 1px solid white;
+}
+
+#title-sort {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .gallery {
@@ -187,6 +245,10 @@ form input {
     color: #901C1C;
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.image-date {
+    display: none;
 }
 
 .likesbox {

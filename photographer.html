@@ -18,11 +18,17 @@
       <div class="photograph-header">
         <button class="contact_button" aria-label="Open contact form" onclick="displayModal()">Contact me</button>
       </div>
-      <span id="order">Order by</span>
-      <div class="order-buttons">
-        <button>Popularity</button>
-        <button>Date</button>
-        <button id="title-sort">Title</button>
+      <div class="order-section">
+        <span id="order">Order by</span>
+        <!-- Added sorting buttons -->
+        <div class="order-buttons">
+          <button id=dropdown-head onclick="toggleOrderMenu()"><span id="order-field-name">Default</span><i class="fas fa-angle-up"></i><i class="fas fa-angle-down"></i></button>
+          <div class="buttons-section">
+            <button id="popularity-sort">Popularity</button>
+            <button id="date-sort">Date</button>
+            <button id="title-sort">Title</button>
+          </div>
+        </div>
       </div>
       <div class="gallery" onkeypress="handleEnter(event)"></div>
     </main>
