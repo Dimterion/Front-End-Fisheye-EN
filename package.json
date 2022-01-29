@@ -1,0 +1,25 @@
+{
+  "name": "front-end-fisheye-website",
+  "version": "1.0.0",
+  "description": "OpenClassrooms 6th project for the Front-End Developer path",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-strongloop": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dimterion/Front-End-Fisheye-EN.git"
+  },
+  "author": "Dmitrii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dimterion/Front-End-Fisheye-EN/issues"
+  },
+  "homepage": "https://github.com/Dimterion/Front-End-Fisheye-EN#readme"
+}
