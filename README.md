@@ -1,4 +1,4 @@
-# Code base for project 6 - Front-End Developer / JavaScript React Developer paths
+# Project 6 - Front-End Developer / JavaScript React Developer path
 
 ## Project set-up
 

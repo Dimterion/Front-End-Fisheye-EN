@@ -40,6 +40,7 @@ function mediaFactory(data) {
     fixedRatesBox.textContent = `${price}€ / day`;
     modalHeader.textContent = name;
 
+    buttonElement.setAttribute("aria-label", `Open contact form ${name}`);
     photographCard.setAttribute("class", "photograph-card");
     textBlock.setAttribute("class", "photograph-card-text");
     img.setAttribute("src", picture);
@@ -68,7 +69,7 @@ function mediaFactory(data) {
 
     if(image !== undefined) {
       img.setAttribute("src", pictures);
-      img.setAttribute("alt", `${title}`);
+      img.setAttribute("alt", `${title}, closeup view`);
       img.setAttribute("id", `${id}`);
       img.setAttribute("class", "gallery-item");
       img.setAttribute("type", "photo");
@@ -82,6 +83,7 @@ function mediaFactory(data) {
       img.setAttribute("id", `${id}`);
       img.setAttribute("class", "gallery-item");
       img.setAttribute("tabindex", "0");
+      img.setAttribute("title", `${title}, closeup view`);
     }
 
     container.setAttribute("class", "image-container");
@@ -92,6 +94,8 @@ function mediaFactory(data) {
     dateSpan.setAttribute("class", "image-date");
     likesSpan.setAttribute("class", "image-likes");
     likesBox.setAttribute("class", "likesbox");
+    likesBox.setAttribute("aria-label", "likes");
+    likesBox.setAttribute("tabindex", "0");
 
     titleSpan.textContent = title;
     dateSpan.textContent = date;
@@ -127,7 +131,7 @@ async function displayMedia(media, photographers) {
     const photoCardDOM = photoModel.getPhotoCardDOM();
     headerSection.appendChild(photoCardDOM);
   });
-};
+}
 
 //Function to sum up previous ones
 async function initMedia() {
@@ -149,6 +153,8 @@ async function initMedia() {
 
   titleForCloseView.setAttribute("class", "image-title-preview");
   lightBoxVideo.setAttribute("controls", "");
+  lightBoxPhoto.setAttribute("alt", "Photo closeup view");
+  lightBoxVideo.setAttribute("title", "Video closeup view");
 
   lightBox.appendChild(lightBoxPhoto);
   lightBox.appendChild(lightBoxVideo);
@@ -161,6 +167,8 @@ async function initMedia() {
       galleryItem[i].onclick = () => {
         lightBoxModal.style.display = "block";
         clickedImgIndex = i;
+        const closeBtn = document.querySelector("#closeIcon");
+        closeBtn.focus();
         function preview () {
           let selectedImgUrl = galleryItem[currentIndex].src;
           lightBoxPhoto.src = selectedImgUrl;
@@ -295,6 +303,6 @@ async function initMedia() {
     }
   });
 
-};
+}
 
 initMedia();

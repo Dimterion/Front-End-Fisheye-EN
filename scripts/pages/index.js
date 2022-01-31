@@ -20,13 +20,13 @@ async function displayData(photographers) {
         const userCardDOM = photographerModel.getUserCardDOM();
         photographersSection.appendChild(userCardDOM);
     });
-};
+}
 
 async function init() {
     // Retreive photographer data
     const { photographers } = await getPhotographers();
     //Checking photographers array --> console.log(photographers);
     displayData(photographers);
-};
+}
 
 init();

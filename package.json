@@ -4,11 +4,12 @@
   "description": "OpenClassrooms 6th project for the Front-End Developer path",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^8.8.0",
     "eslint-config-strongloop": "^2.1.0",
     "prettier": "^2.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^8.8.0"
+  },
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1"

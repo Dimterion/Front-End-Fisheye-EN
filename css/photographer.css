@@ -302,3 +302,89 @@ form textarea {
     border: none;
     border-radius: 5px;
 }
+
+@media(max-width: 768px) {
+    body header {
+        height: 7vh;
+    }
+
+    .photograph-header {
+        height: auto;
+        margin: auto;
+    }
+
+    .photograph-header img {
+        margin-bottom: 25px;
+    }
+
+    .photograph-card {
+        flex-direction: column-reverse;
+    }
+
+    .photograph-card-text {
+        text-align: center;
+    }
+
+    .photograph-card-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .photograph-card-text h2 {
+        font-size: 1rem;
+    }
+
+    .contact_button {
+        height: 50px;
+    }
+
+    .order-section {
+        justify-content: space-around;
+        margin-top: 2.5vh;
+    }
+
+    #order {
+        margin: 0;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+        left: 0;
+    }
+
+    .image-container {
+        width: 95%;
+        height: 50vh;
+        margin-bottom: 7vh;
+    }
+
+    .photograph-rates {
+        width: 50vw;
+    }
+
+    i.fas.fa-heart {
+        margin-left: 0;
+    }
+
+    .modal {
+        width: 80%;
+        height: 80%;
+    }
+
+    #modal-header-block h1 {
+        font-size: 2rem;
+    }
+
+    #modal-main {
+        flex-direction: row;
+    }
+
+    .lightbox i.fas.fa-chevron-left {
+        left: 7%;
+    }
+
+    .image-title-preview {
+        width: 100%;
+        text-align: center;
+    }
+}

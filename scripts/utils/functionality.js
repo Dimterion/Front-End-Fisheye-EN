@@ -8,7 +8,7 @@ function handleEnter(e){
   if (keycode == '13') {
     document.activeElement.click();
   }
-};
+}
 
 //Sorting button
 function toggleOrderMenu() {
@@ -56,9 +56,6 @@ function sortPopularity() {
 
   toggleOrderMenu();
   
-  sortPopularityBtn.style.display = "none";
-  sortDatesBtn.style.display = "flex";
-  sortTitlesBtn.style.display = "flex";
   sortDatesBtn.style.borderBottomLeftRadius = "0";
   sortDatesBtn.style.borderBottomRightRadius = "0";
   sortDatesBtn.style.borderBottom = "1px solid white";
@@ -94,9 +91,6 @@ function sortDates() {
 
   toggleOrderMenu();
 
-  sortPopularityBtn.style.display = "flex";
-  sortDatesBtn.style.display = "none";
-  sortTitlesBtn.style.display = "flex";
   sortDatesBtn.style.borderBottomLeftRadius = "0";
   sortDatesBtn.style.borderBottomRightRadius = "0";
   sortDatesBtn.style.borderBottom = "1px solid white";
@@ -132,12 +126,10 @@ function sortTitles() {
   
   toggleOrderMenu();
 
-  sortPopularityBtn.style.display = "flex";
-  sortDatesBtn.style.display = "flex";
-  sortTitlesBtn.style.display = "none";
-  sortDatesBtn.style.borderBottomLeftRadius = "5px";
-  sortDatesBtn.style.borderBottomRightRadius = "5px";
+  sortDatesBtn.style.borderBottomLeftRadius = "0px";
+  sortDatesBtn.style.borderBottomRightRadius = "0px";
   sortDatesBtn.style.borderBottom = "none";
+  sortDatesBtn.style.borderBottom = "1px solid white";
 
 }
 

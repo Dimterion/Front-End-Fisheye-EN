@@ -16,17 +16,17 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" aria-label="Open contact form" onclick="displayModal()">Contact me</button>
+        <button class="contact_button" onclick="displayModal()">Contact me</button>
       </div>
       <div class="order-section">
         <span id="order">Order by</span>
         <!-- Added sorting buttons -->
         <div class="order-buttons">
-          <button id=dropdown-head onclick="toggleOrderMenu()"><span id="order-field-name">Default</span><i class="fas fa-angle-up"></i><i class="fas fa-angle-down"></i></button>
+          <button id=dropdown-head onclick="toggleOrderMenu()" aria-label="Order by" aria-haspopup="listbox"><span id="order-field-name">Date</span><i class="fas fa-angle-up"></i><i class="fas fa-angle-down"></i></button>
           <div class="buttons-section">
-            <button id="popularity-sort">Popularity</button>
-            <button id="date-sort">Date</button>
-            <button id="title-sort">Title</button>
+            <button id="popularity-sort" aria-label="Order by popularity">Popularity</button>
+            <button id="date-sort" aria-label="Order by date">Date</button>
+            <button id="title-sort" aria-label="Order by title">Title</button>
           </div>
         </div>
       </div>
@@ -38,14 +38,14 @@
       <span id="rates"></span>
     </div>
     <!-- Adjusted the modal -->
-    <div id="contact_modal">
+    <div id="contact_modal" onkeypress="handleEnter(event)">
 			<div class="modal" role="dialog" aria-labelledby="modal-header-block">
 				<header id="modal-main">
           <div id="modal-header-block">
             <h1>Contact me</h1>
             <h1 id="modal-header"></h1>
           </div>
-          <img src="assets/icons/close.svg" class="close-modal" alt="" aria-label="Close contact form" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" class="close-modal" alt="" aria-label="Close contact form" tabindex="0" onclick="closeModal()" />
         </header>
 				<form>
 					<div>
@@ -70,11 +70,11 @@
 		</div>
     <script src="scripts/utils/contactForm.js"></script>
     <!-- Added Lightbox block -->
-    <div id="modal-lightbox">
-      <div class="lightbox" role="dialog" aria-label="Image closeup view" >
-        <i id="closeIcon" class="fas fa-times" aria-label="Close image"></i>
-        <i id="rightArr" class="fas fa-chevron-right"></i>
-        <i id="leftArr" class="fas fa-chevron-left"></i>
+    <div id="modal-lightbox" onkeypress="handleEnter(event)">
+      <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image closeup view" >
+        <i id="closeIcon" class="fas fa-times" aria-label="Close dialog" tabindex="0"></i>
+        <i id="rightArr" class="fas fa-chevron-right" aria-label="Next image" tabindex="0"></i>
+        <i id="leftArr" class="fas fa-chevron-left" aria-label="Previous image" tabindex="0"></i>
       </div>
     </div>
     <!-- Added link to photographer.js and lightbox.js -->

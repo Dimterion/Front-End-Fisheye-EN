@@ -45,15 +45,11 @@ h1 {
     flex-direction: column;
 }
 
-/* Added a tag alignment, decoration and focus */
+/* Added a tag alignment, decoration */
 
 .photographer_section article a {
     text-align: center;
     text-decoration: none;
-}
-
-a:focus {
-    border: 0.1rem solid black;
 }
 
 .photographer_section article img {
@@ -85,3 +81,24 @@ a:focus {
     color: #525252;
     font-size: .9rem;
 }
+
+/* Added media section */
+
+@media(max-width: 768px) {
+    .photographer_section {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        margin: 3vh auto;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    p {
+        text-align: center;
+    }
+  }
