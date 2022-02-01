@@ -160,7 +160,7 @@ async function initMedia() {
   lightBox.appendChild(lightBoxVideo);
   lightBox.appendChild(titleForCloseView);
 
-  window.onload = () => {
+  function onloading() {
     for (let i = 0; i < galleryItem.length; i++) {
       let currentIndex = i;
       let clickedImgIndex;
@@ -272,6 +272,8 @@ async function initMedia() {
       }
     }
   }
+
+  onloading();
 
   //Likes count
   const likes = document.querySelectorAll(".likesbox");
